@@ -1,0 +1,32 @@
+# composer para teste do ambiente
+# porta 9000 aponta para uma ferramenta para gerenciamento do banco
+# porta 8080 aplicacao
+version: '3.9'
+
+services:
+  dbpostgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: localdb    
+
+  adminer:
+    image: adminer
+    ports:
+      - 9000:8080
+  
+  cadpessoas-web:
+    build: .
+    #image: "payara/server-web:6.2024.1-jdk21"
+    ports:
+      - "8080:8080"
+      - "8181:8181" # HTTPS listener
+      - "4848:4848" # HTTPS admin listener
+      - "9009:9009" # Debug port
+    environment:  
+      - DATABASE_URL=jdbc:postgresql://dbpostgres:5432/localdb  
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgres

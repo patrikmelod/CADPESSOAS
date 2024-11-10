@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+    <featureManager>
+         <feature>jakartaee-10.0</feature>
+    </featureManager>
+    <httpEndpoint id="defaultHttpEndpoint" httpPort="8080" httpsPort="9443"/>
+	<accessLogging filepath="${server.output.dir}/logs/http_defaultEndpoint_access.log"
+	                  logFormat='%h %i %u %t "%r" %s %b %D %{R}W' />
+    <quickStartSecurity userName="duke" userPassword="dukeduke"/>
+</server>
