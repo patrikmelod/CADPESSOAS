@@ -20,7 +20,8 @@
                 <f:selectItems value="#{beanJFCidade.all}" var="c" itemLabel="#{c.nome}" itemValue="#{c.id}" />
             </h:selectOneMenu>
             <h:commandButton value="[]" action="#{beanJFPessoa.newID()}" />
-            <h:commandButton value="+" action="#{beanJFPessoa.add()}" />
+            <!-- Troca de "+" para "Adicionar". Alteração realizada por Augusto B. Simionato, 2418185 -->
+            <h:commandButton value="Adicionar" action="#{beanJFPessoa.add()}" />
         </h:form>
     <hr/>
         <h2>== Lista de clientes cadastrados ==</h2>
